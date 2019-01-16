@@ -6,5 +6,5 @@
 #include <Arduino.h>
 
 void test(){
-    Serial.println("test2");
+    Serial.println("Demo test called");
 }
