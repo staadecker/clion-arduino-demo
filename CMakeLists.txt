@@ -68,7 +68,7 @@ foreach(INDEX RANGE ${LENGTH2})
     # Add executable and upload target
     add_executable(${CURRENT_NAME} ${CURRENT_FILE} ${ARDUINO_CORE_SRC} ${SRC_FILES})
     add_custom_target(upload-${CURRENT_NAME}
-            COMMAND ${CMAKE_OBJCOPY} -j .text -j .data -O ihex ${CURRENT_NAME} ${PROJECT_NAME}.hex
-            COMMAND ${ARDUINO_AVRDUDE}/bin/avrdude -C${ARDUINO_AVRDUDE}/etc/avrdude.conf -F -p${MCU} -c${PROGRAMMER} -P${PORT} -D -Uflash:w:${PROJECT_NAME}.hex:i
+            COMMAND ${CMAKE_OBJCOPY} -j .text -j .data -O ihex ${CURRENT_NAME} ${PROJECT_NAME}.hex # Create hex file
+            COMMAND ${ARDUINO_AVRDUDE}/bin/avrdude -C${ARDUINO_AVRDUDE}/etc/avrdude.conf -F -p${MCU} -c${PROGRAMMER} -P${PORT} -D -Uflash:w:${PROJECT_NAME}.hex:i # Flash hex file to arduino
             DEPENDS ${CURRENT_NAME})
 endforeach(INDEX)
