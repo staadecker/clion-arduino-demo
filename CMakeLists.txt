@@ -29,13 +29,16 @@ file(GLOB_RECURSE SRC_FILES lib/*.cpp)
 # Arduino libraries
 file(GLOB_RECURSE ARDUINO_CORE_SRC
         ${ARDUINO_AVR}/cores/arduino/*.c
-        ${ARDUINO_AVR}/cores/arduino/*.cpp)
+        ${ARDUINO_AVR}/cores/arduino/*.cpp
+        ${ARDUINO_AVR}/libraries/*.cpp
+        ${ARDUINO_AVR}/libraries/*.c)
 
-# Include directories
+# Include directories: ADD YOUR LIBRARIES HERE
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${ARDUINO_AVR}/cores/arduino
         ${ARDUINO_AVR}/variants/${PIN_VARIANT}
+        #ex. ${ARDUINO_AVR}/libraries/SoftwareSerial/src
 )
 
 # Compiler suite specification
